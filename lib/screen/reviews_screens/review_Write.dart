@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:tong_myung_hotel/screen/reviews_screens/review_main.dart';
+import 'package:tong_myung_hotel/widgets/custom-widget-tabs.widget.dart';
 import 'package:video_player/video_player.dart';
 
 class ReviewWrite extends StatefulWidget {
@@ -350,12 +351,10 @@ class _ReviewWriteState extends State<ReviewWrite> {
                                         });
                                       }
 
-
-
-
-                              Navigator.popUntil(context, ModalRoute.withName('/review'));
-//                                        Navigator.of(context).pop();
-//                                        Navigator.of(context).pop();
+                                      Navigator.pushReplacement(
+                                          context, MaterialPageRoute(builder: (BuildContext context) => CustomWidgetExample(index: 1,)));
+                                      // Navigator.of(context).pushReplacement(CustomWidgetExample(index: 1,));
+                                    //  Navigator.pushNamedAndRemoveUntil(context, '/review', (route) => false);
 
                                       },
                                     ),

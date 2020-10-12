@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (_returnString == 'success') {
 
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => CustomWidgetExample()));
+            .push(MaterialPageRoute(builder: (context) => CustomWidgetExample(index: 0,)));
 
       }else{
 //        Scaffold.of(context).showSnackBar(

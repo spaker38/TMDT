@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tong_myung_hotel/state/current_State.dart';
+import 'package:tong_myung_hotel/widgets/custom-widget-tabs.widget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
           SignupScreen.routeName: (ctx) => SignupScreen(),
           '/home' : (BuildContext context) => new GettingStartedScreen(),
           '/review' : (BuildContext context)=> new Review(),
+          '/review2' : (BuildContext context) => new CustomWidgetExample(),
         },
       ),
     );

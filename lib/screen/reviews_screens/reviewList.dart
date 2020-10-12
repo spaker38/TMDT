@@ -423,31 +423,34 @@ class _FeedPageState extends State<FeedPage> {
                                                                                 Text('OK', style: TextStyle(color: green2)),
                                                                             onPressed:
                                                                                 () async {
+
                                                                               if (textEditingController.text.isNotEmpty && textEditingController.text.length > 4) {
                                                                                 // Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({'caption':textEditingController.text,});
 
-                                                                                String fileName = DateTime.now().millisecondsSinceEpoch.toString() + basename(_image.path);
 
-                                                                                final StorageReference storageReference = _storage.ref().child("Review_Image").child(user.uid).child(fileName);
-
-                                                                                final StorageUploadTask uploadTask = storageReference.putFile(_image);
-
-                                                                                StorageTaskSnapshot onComplete = await uploadTask.onComplete;
-
-                                                                                String photoUrl = await onComplete.ref.getDownloadURL();
-
-
-                                                                                _image == null
-                                                                                    ?  Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({
+                                                                                Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({
                                                                                   'caption': textEditingController.text,
                                                                                   'starRate': _starRate,
-                                                                                })
-
-                                                                                  :  Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({
-                                                                                  'caption': textEditingController.text,
-                                                                                  'starRate': _starRate,
-                                                                                  'photoUrl': photoUrl
                                                                                 });
+                                                                                if (_image != null){
+
+                                                                                  String fileName = DateTime.now().millisecondsSinceEpoch.toString() + basename(_image.path);
+
+                                                                                  final StorageReference storageReference = _storage.ref().child("Review_Image").child(user.uid).child(fileName);
+
+                                                                                  final StorageUploadTask uploadTask = storageReference.putFile(_image);
+
+                                                                                  StorageTaskSnapshot onComplete = await uploadTask.onComplete;
+
+                                                                                  String photoUrl = await onComplete.ref.getDownloadURL();
+
+                                                                                  Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({
+                                                                                    'photoUrl': photoUrl
+                                                                                  });
+                                                                                }
+                                                                                Navigator.of(context).pop();
+                                                                                Navigator.of(context).pop();
+                                                                                textEditingController.clear();
 //                                                                                  Firestore.instance.collection('Reviews').document(posts[i].documentID).updateData({
 //                                                                                    'caption': textEditingController.text,
 //                                                                                    'starRate': _starRate,
@@ -458,12 +461,12 @@ class _FeedPageState extends State<FeedPage> {
 //                                                                                    'caption': textEditingController.text,
 //                                                                               'starRate': _starRate
 //                                                                                  });
-
                                                                                 setState(() {
-                                                                                  textEditingController.clear();
+
                                                                                 });
-                                                                                     Navigator.of(context).pop();
-                                                                                Navigator.of(context).pop();
+
+
+
                                                                               } else
                                                                                 Fluttertoast.showToast(
                                                                                   msg: "후기를 5자 이상 작성해주세요.",

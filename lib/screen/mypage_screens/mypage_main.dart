@@ -60,9 +60,9 @@ class _MyPageState extends State<MyPage> {
   String _name; // auth 이름
   String _fieldName; // Users의 필드 항목에서 이름
   String _password;
-  String _checkIn;
-  String _checkOut;
-  String _people;
+  String _checkIn; //입실일
+  String _checkOut; //퇴실일
+  String _people; //인원
   String _email;
   String _phone;
   String _book; // 방 유형 숫자
@@ -189,6 +189,8 @@ class _MyPageState extends State<MyPage> {
               _phone  = ds.data['phone'];
               _people = ds.data['인원'];
 
+
+
               if(_book=='1' || _book=='2'|| _book=='7'|| _book=='8') // 방 유형 번호에 따른 사진출력
                 _imageUrl = 'gs://tu-domi.appspot.com/room_type/three_room.png';
               else if(_book =='3'||_book=='4'||_book=='9'||_book=='10')
@@ -201,43 +203,43 @@ class _MyPageState extends State<MyPage> {
               switch(_book) { // 방 유형 번호에 따른 방 이름 지정
                 case '1':
                   _roomName = '남성 3인 도미토리';
-                  _roomName_eng = "man_three_hotel";
+                  _roomName_eng = "man_three_guesthouse";
                   break;
                 case '2':
                   _roomName = '남성 3인실';
-                  _roomName_eng = "man_three_guesthouse";
+                  _roomName_eng = "man_three_hotel";
                   break;
                 case '3':
                   _roomName = '남성 2인 도미토리';
-                  _roomName_eng = "man_two_hotel";
+                  _roomName_eng = "man_two_guesthouse";
                   break;
                 case '4':
                   _roomName = '남성 2인실';
-                  _roomName_eng = "man_two_guesthouse";
+                  _roomName_eng = "man_two_hotel";
                   break;
                 case '5':
                   _roomName = '여성 4인 도미토리';
-                  _roomName_eng = "woman_four_hotel";
+                  _roomName_eng = "woman_four_guesthouse";
                   break;
                 case '6':
                   _roomName = '여성 4인실';
-                  _roomName_eng = "woman_four_guesthouse";
+                  _roomName_eng = "woman_four_hotel";
                   break;
                 case '7':
                   _roomName = '여성 3인 도미토리';
-                  _roomName_eng = "woman_three_hotel";
+                  _roomName_eng = "woman_three_guesthouse";
                   break;
                 case '8':
                   _roomName = '여성 3인실';
-                  _roomName_eng = "woman_three_guesthouse";
+                  _roomName_eng = "woman_three_hotel";
                   break;
                 case '9':
                   _roomName = '여성 2인 도미토리';
-                  _roomName_eng = "woman_two_hotel";
+                  _roomName_eng = "woman_two_guesthouse";
                   break;
                 case '10':
                   _roomName = '여성 2인실';
-                  _roomName_eng = "woman_two_guesthouse";
+                  _roomName_eng = "woman_two_hotel";
                   break;
               }
 
@@ -489,9 +491,12 @@ class _MyPageState extends State<MyPage> {
                                                                 child: Text('OK'),
                                                                 onPressed: (){
                                                                  setState(() {
+
+                                                                   var inpeople;
+                                                                   inpeople = int.parse(_people);
                                                                    Firestore.instance.collection('Users').document(_uid).updateData({'방 유형' :'0', '입실일':'','퇴실일':'','인원':''});
                                                                    //예약취소 로직 ㄱ
-
+                                                                   Firestore.instance.collection('Tongmyung_dormitory2').document(_checkIn).updateData(<String, dynamic>{_roomName_eng : FieldValue.increment(inpeople)});
                                                                    //다시 남은 침대, 방의수를 증가시켜주는 메소드다.
                                                                    //Update_remain();
                                                                  });

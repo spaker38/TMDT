@@ -9,22 +9,34 @@ import 'custom-widget.dart';
 
 class CustomWidgetExample extends StatefulWidget {
   final BuildContext menuScreenContext;
-  CustomWidgetExample({Key key, this.menuScreenContext}) : super(key: key);
+
+
+   final int index;
+
+
+   CustomWidgetExample({Key key,
+    this.index, this.menuScreenContext}) : super(key: key);
+
+
 
   @override
   _CustomWidgetExampleState createState() => _CustomWidgetExampleState();
 }
 
 class _CustomWidgetExampleState extends State<CustomWidgetExample> {
-  PersistentTabController _controller;
+
   bool _hideNavBar;
+  PersistentTabController _controller;
+
 
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: 0);
+    int reviewIndex = widget.index;
+    _controller = PersistentTabController(initialIndex: reviewIndex);
     _hideNavBar = false;
   }
+
 
   List<Widget> _buildScreens() { // 네비게이션바 화면 지정
     return [
