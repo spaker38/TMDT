@@ -17,16 +17,16 @@ import '../../widgets/slide_dots.dart';
 
 //남녀성별을 선택하는 체크박스 기능을 구현하기위해 추가한 코드
 enum Gender {MAN, WOMEN}
-
-class Book_room_stls extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Book_room_stful(),
-    );
-  }
-}
+//
+//class Book_room_stls extends StatelessWidget {
+//  // This widget is the root of your application.
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      body: Book_room_stful(),
+//    );
+//  }
+//}
 
 class Book_room_stful extends StatefulWidget {
   String type;
@@ -34,8 +34,6 @@ class Book_room_stful extends StatefulWidget {
   Book_room_stful({
     this.type,
   });
-
-
 
   @override
   _Book_room_stfulState createState() => _Book_room_stfulState();
@@ -598,8 +596,7 @@ class _Book_room_stfulState extends State<Book_room_stful> {
 
 
 
-                                Navigator.push(
-                                context,
+                                Navigator.of(context).push(
                                   MaterialPageRoute(builder: (context) =>
 
 

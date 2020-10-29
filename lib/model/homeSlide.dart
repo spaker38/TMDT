@@ -21,12 +21,12 @@ final slideList = [
   Slide(
     imageUrl: 'assets/images/nightschool.jpg',
     title: 'Experience',
-    description: '새로운 경험을 할 수 있습니다',
+    description: '숙박의 새로운 경험을 \n\n 지금 바로 시작해보세요!',
   ),
-  Slide(
-    imageUrl: 'assets/images/gwangan.jpg',
-    title: 'Travel',
-    description: '동명대학교와 함께 여행을 떠나요',
-  ),
+//  Slide(
+//    imageUrl: 'assets/images/gwangan.jpg',
+//    title: 'Travel',
+//    description: '동명대학교와 함께 여행을 떠나요',
+//  ),
 
 ];

@@ -6,6 +6,7 @@ import 'package:tong_myung_hotel/screen/reviews_screens/review_main.dart';
 import 'package:tong_myung_hotel/screen/sign_screens/login_screen.dart';
 import 'package:tong_myung_hotel/screen/sign_screens/sign_main.dart';
 import 'package:tong_myung_hotel/screen/sign_screens/signup_screen.dart';
+import 'package:tong_myung_hotel/screen/sign_screens/splash.dart';
 import 'package:tong_myung_hotel/state/currentUser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,13 +44,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: GettingStartedScreen(),
+       home: Splash(),
+        //home: GettingStartedScreen(),
         routes: {
           LoginScreen.routeName: (ctx) => LoginScreen(),
           SignupScreen.routeName: (ctx) => SignupScreen(),
           '/home' : (BuildContext context) => new GettingStartedScreen(),
           '/review' : (BuildContext context)=> new Review(),
-          '/review2' : (BuildContext context) => new CustomWidgetExample(),
+          //'/review2' : (BuildContext context) => new CustomWidgetExample(),
         },
       ),
     );

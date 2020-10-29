@@ -351,8 +351,7 @@ class _ReviewWriteState extends State<ReviewWrite> {
                                         });
                                       }
 
-                                      Navigator.pushReplacement(
-                                          context, MaterialPageRoute(builder: (BuildContext context) => CustomWidgetExample(index: 1,)));
+                                      Navigator.of(context).pop();
                                       // Navigator.of(context).pushReplacement(CustomWidgetExample(index: 1,));
                                     //  Navigator.pushNamedAndRemoveUntil(context, '/review', (route) => false);
 

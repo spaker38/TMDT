@@ -3,28 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:tong_myung_hotel/method_variable_collection.dart';
 import 'package:tong_myung_hotel/screen/book_screens/select_booking_condition.dart';
+import 'package:tong_myung_hotel/screen/mypage_screens/mypage_main.dart';
 import 'dart:convert';
 
-class Hotel_motel_choice extends StatelessWidget {
-  final BuildContext menuScreenContext;
-  final Function onScreenHideButtonPressed;
-  final bool hideStatus;
-  const Hotel_motel_choice(
-      {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false})
-      : super(key: key);
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-
-
-      home: Hotel_motel_choice_(),
-    );
-  }
-}
+import 'package:tong_myung_hotel/screen/reviews_screens/review_main.dart';
 
 class Hotel_motel_choice_ extends StatefulWidget {
 
@@ -120,9 +102,9 @@ class _Hotel_motel_choice_State extends State<Hotel_motel_choice_> {
 
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(
-                        context, MaterialPageRoute(
-                        builder: (context) => Book_room_stful(type:"hotel",),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                        builder: (context) => Book_room_stful(type:"hotel"),
                       ));//버튼이 눌리는 이벤트 발생 시, 다음 페이지에서 전달 받을 string 변수와 value('SecondRoute_Delivered')값을 직접 전달
 
                       variable.Sleep_Hotel();
