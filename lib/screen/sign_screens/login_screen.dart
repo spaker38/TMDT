@@ -50,13 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
         case LoginType.email:
 
           _returnString = await _currentUser.loginUserWithEmail(email, password);
-
-
           break;
         case LoginType.google:
-
           _returnString  = await _currentUser.loginUserWithGoogle(email,password);
-
           break;
         default:
       }
@@ -67,16 +63,13 @@ class _LoginScreenState extends State<LoginScreen> {
             .push(MaterialPageRoute(builder: (context) => mainPage()));
 
       }else{
-//        Scaffold.of(context).showSnackBar(
-//            SnackBar(
-//              content: Text(_returnString),
-//              duration: Duration(seconds: 2),
-//            )
-//        );
+
       scaffoldKey.currentState.showSnackBar(SnackBar(
               content: Text('아이디 또는 비밀번호를 확인하세요'),
               duration: Duration(seconds: 2),
             ));
+
+      print(_returnString);
       }
     } catch (e) {
       print(e);

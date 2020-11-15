@@ -549,7 +549,7 @@ class _Booking_roomState extends State<Booking_room> {
               users_room_type_for_update_data="10";
             }
 
-            Firestore.instance.collection("Users").document(CurrentUser.login_user_uid).updateData({"입실일":widget.enter_room_time,"퇴실일":widget.exit_room_time,"인원":widget.supply.substring(0,1),"방 유형":users_room_type_for_update_data});
+            Firestore.instance.collection("Users").document(CurrentUser.login_user_uid).updateData({"입실일":widget.enter_room_time,"입실일후기":widget.enter_room_time,"퇴실일":widget.exit_room_time,"퇴실일후기":widget.exit_room_time,"인원":widget.supply.substring(0,1),"인원후기":widget.supply.substring(0,1),"방 유형후기":users_room_type_for_update_data,"방 유형":users_room_type_for_update_data});
 
             //호텔,게스트하우스식을 선택하는 화면으로 되돌아간다.
             Navigator.push(context, MaterialPageRoute(builder: (context) => Hotel_motel_choice_()),);

@@ -94,7 +94,7 @@ class _FeedPageState extends State<FeedPage> {
     } else {
       return Container(
         width: width / 1.05,
-        height: height / 2,
+        height: height / 1.35,
         child: RefreshIndicator(
             color: green1,
             onRefresh: () {
@@ -131,6 +131,9 @@ class _FeedPageState extends State<FeedPage> {
                       SizedBox(
                         height: 5,
                       ),
+                      Row(children:[
+                        Icon(Icons.calendar_today),
+                      ]),
                       Row(children: [
                         SizedBox(
                           width: width / 40,

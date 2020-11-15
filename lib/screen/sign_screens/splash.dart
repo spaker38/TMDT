@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tong_myung_hotel/screen/sign_screens/login_screen.dart';
 import 'package:tong_myung_hotel/screen/sign_screens/signup_screen.dart';
 
+
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
@@ -18,24 +19,31 @@ class _SplashState extends State<Splash> {
     return Scaffold(
         body: SingleChildScrollView(
           child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/school2.png"),fit: BoxFit.cover
+              ),
+            ),
+//            color: Colors.green,
             width: width,
               height: height,
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: height/4.5,),
-              Text('TMDT', style: TextStyle(fontFamily: 'HYShortSamul',fontSize: width/5),textAlign: TextAlign.center,),
-              SizedBox(height: height/100,),
-              Text('가족, 친구 그리고 혼자서 여행할 때', style: TextStyle(fontFamily: 'NanumSquareB',fontSize: width/24),),
+              SizedBox(height: height/10,),
+              Text('TONGMYONG\nDOMITORY', style: TextStyle(fontFamily: 'HYShortSamul',color: Colors.white,fontSize: width/8),textAlign: TextAlign.center,),
+              Text('(동명 도미토리)', style: TextStyle(fontFamily: 'HYShortSamul',color: Colors.white,fontSize: width/12),textAlign: TextAlign.center,),
+              SizedBox(height: height/20,),
+              Text('대학 캠퍼스의 추억을 경험해보고싶지 않나요?', style: TextStyle(fontFamily: 'NanumSquareB',color: Colors.white,fontSize: width/24),),
               SizedBox(height: height/30,),
-              Text('숙소 걱정말고 즐거운 여행 하세요!', style: TextStyle(fontFamily: 'NanumSquareR',fontSize: width/18),),
-              SizedBox(height: height/3,),
+              Text('캠퍼스 투어와 함께 하세요!', style: TextStyle(fontFamily: 'NanumSquareR',fontSize: width/18,color: Colors.white),),
+              SizedBox(height: height/4,),
               Container(
                 height: height/12,
                 width: width/1.3,
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(60),
                 ),
                 child: FlatButton(
@@ -64,14 +72,14 @@ class _SplashState extends State<Splash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('회원이 아니신가요?  ',style: TextStyle(
-                    fontFamily: 'NanumSquareR',
+                    fontFamily: 'NanumSquareR',color: Colors.white,
                     fontSize: width/25,
                   )),
                   InkWell(
                     child: Text('회원가입',
                     style: TextStyle(
                         fontFamily: 'NanumSquareEB',
-                        fontSize: width/25,
+                        fontSize: width/25,color: Colors.white,
                       decoration: TextDecoration.underline
                     ),),
                     onTap: (){

@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: [
