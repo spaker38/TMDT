@@ -68,6 +68,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
     double ratio = (hi+wi)/2;
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         color: Colors.white,
         child: Padding(

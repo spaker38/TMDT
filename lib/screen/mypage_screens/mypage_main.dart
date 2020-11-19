@@ -160,6 +160,7 @@ class _MyPageState extends State<MyPage> {
     var ratio = (height + width) / 2;
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 15),
         child: AppBar(

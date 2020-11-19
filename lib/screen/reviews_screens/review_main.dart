@@ -50,6 +50,7 @@ class _ReviewState extends State<Review> {
     var width = MediaQuery.of(context).size.width;
     var ratio = (width+height)/2;
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 15),
         child: AppBar(

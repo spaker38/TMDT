@@ -139,6 +139,7 @@ class _ReviewWriteState extends State<ReviewWrite> {
     String dropdownValue;
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 15),
         child: AppBar(
